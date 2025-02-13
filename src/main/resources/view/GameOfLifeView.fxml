@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="com.gol.GameOfLifeController">
+
+    <top>
+        <VBox>
+            <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+                <Label text="Filas:" />
+                <TextField fx:id="rowsInput" promptText="Default: 50" />
+                <Label text="Columnas:" />
+                <TextField fx:id="colsInput" promptText="Defailt: 50" />
+                <Button text="Aplicar" onAction="#applyGridSize" />
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Velocidad(ms):" />
+                <TextField fx:id="speedInput" promptText="Default 300" />
+                <Button text="Aplicar Velocidad" onAction="#applySpeed"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Generación límite:"/>
+                <TextField fx:id="generationLimitInput" promptText="Default inf." />
+                <Button text="Aplicar Límite" onAction="#applyGenerationLimit"/>
+            </HBox>
+
+
+            <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+                <Label text="Dibuje su vecindario:" />
+                <GridPane fx:id="neighborhoodGrid" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox alignment="CENTER">
+            <VBox alignment="CENTER">
+                <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="true"
+                    BorderPane.alignment="CENTER">
+                    <Canvas fx:id="canvas" />
+                </ScrollPane>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <VBox>
+            <HBox spacing="10" alignment="CENTER">
+                 <Label fx:id="generationLabel"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER"
+                style="-fx-background-color: #f4f4f4; -fx-padding: 10px;">
+                <Button text="Start" onAction="#startGame" />
+                <Button text="Stop" onAction="#stopGame" />
+                <Button text="Reset" onAction="#resetGame" />
+                <Button text="Randomize" onAction="#randomize" />
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>
